@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--namespace：名称空间，可以将接口与此配置文件进行绑定-->
+<mapper namespace="com.mybatis.bean.ReaderMapper">
+
+    <!--id：唯一标识-->
+    <!--resultType：返回值类型-->
+    <!--#{id}：从传递进来的id中获取id值-->
+
+    <!--将id内容更换成接口的方法名，使得select成为相关接口方法的实现-->
+    <select id="getReaderById" resultType="com.mybatis.bean.Reader">
+ select * from reader where id = #{id}
+ </select>
+
+</mapper>
