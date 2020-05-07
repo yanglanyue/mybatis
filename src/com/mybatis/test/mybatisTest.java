@@ -23,7 +23,7 @@ public class mybatisTest {
     /*
     * 1、根据xml全局配置文件（其中包含运行环境配置信息）创建一个SqlSessionFactory对象
     * 2、sql映射文件：配置每一个sql以及它的封装规则
-    * 3、将sql映射文件这测到全局文件
+    * 3、将sql映射文件注册到全局文件
     * 4、写如下代码：
     * 切记用完后.close()关闭
     * */
