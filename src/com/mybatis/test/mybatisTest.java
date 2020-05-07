@@ -36,7 +36,7 @@ public class mybatisTest {
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 
         //2
-        //从sqlSessionFactory中获取sqlSession实例，能直接执行已经映射的sql语句
+        //从sqlSessionFactory中获取sqlSession实例，能直接执行已经映射的sql语句，一个SqlSession代表和数据库的一次会话
         SqlSession openSession = sqlSessionFactory.openSession();
         try {
 //            3.尚硅谷_MyBatis_HelloWorld 16:56
