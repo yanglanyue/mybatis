@@ -9,6 +9,7 @@
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>
+            <!--连接数据源-->
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
                 <property name="url" value="jdbc:mysql://127.0.0.1/a?useUnicode=true&amp;characterEncoding=utf-8&amp;serverTimezone=UTC"/>
@@ -19,6 +20,7 @@
     </environments>
 
     <!--写好的sql映射文件（mapper.xml）一定要注册到全局文件中（mybatis-config.xml）-->
+<!--3.尚硅谷_MyBatis_HelloWorld 17:35-->
     <mappers>
         <mapper resource="mapper.xml"/>
     </mappers>

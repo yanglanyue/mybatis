@@ -3,15 +3,16 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!--namespace：名称空间，可以将接口与此配置文件进行绑定-->
+<!--3.尚硅谷_MyBatis_HelloWorld 16:56-->
+<!--namespace：名称空间，可以随便起一个名，用以将接口与此配置文件进行绑定-->
 <mapper namespace="com.mybatis.bean.ReaderMapper">
 
-    <!--id：唯一标识-->
+    <!--id：唯一标识，和项目相关方法中将要执行调用的名字保持一致-->
     <!--resultType：返回值类型-->
-    <!--#{id}：从传递进来的id中获取id值-->
+    <!--#{id}：从传递进来的参数中获取id值-->
 
     <!--将id内容更换成接口的方法名，使得select成为相关接口方法的实现-->
-    <select id="getReaderById" resultType="com.mybatis.bean.Reader">
+    <select id="selectReader" resultType="com.mybatis.bean.Reader">
  select * from reader where id = #{id}
  </select>
 
