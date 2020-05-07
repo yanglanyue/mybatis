@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import com.mybatis.bean.Reader;
+import com.mybatis.bean.ReaderMapper;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -48,17 +49,27 @@ public class mybatisTest {
         }
     }
 
+    //        4.尚硅谷_MyBatis_接口式编程
     @Test
     public void test2() throws IOException {
-        //为方便，用写好的getSqlSessionFactory()方法获取sqlSessionFactory对象
+        //1、为方便，用写好的getSqlSessionFactory()方法获取sqlSessionFactory对象
         SqlSessionFactory sqlSessionFactory = getSqlSessionFactory();
 
-        //获取SqlSession对象
+        //2、获取SqlSession对象
         SqlSession openSession = sqlSessionFactory.openSession();
+
         try {
-            Reader reader = openSession.selectOne("com.mybatis.bean.ReaderMapper.selectReader", 3);
+//        4.尚硅谷_MyBatis_接口式编程 05:20
+            //3、获取接口的实现类对象
+            ReaderMapper mapper = openSession.getMapper(ReaderMapper.class);
+
+            //4、调用接口的方法
+            Reader reader = mapper.getReaderById(3);
+
+            //5、打印
             System.out.println(reader);
         }finally {
+            //6、关闭资源
             openSession.close();
         }
     }
