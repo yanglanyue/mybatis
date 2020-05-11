@@ -49,7 +49,7 @@ public class mybatisTest {
         }
     }
 
-    //        4.尚硅谷_MyBatis_接口式编程
+    //        4.尚硅谷_MyBatis_接口式编程1111
     @Test
     public void test2() throws IOException {
         //1、为方便，用写好的getSqlSessionFactory()方法获取sqlSessionFactory对象
