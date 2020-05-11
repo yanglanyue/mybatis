@@ -60,7 +60,7 @@ public class mybatisTest {
 
         try {
 //        4.尚硅谷_MyBatis_接口式编程 05:20
-            //3、获取接口的实现类对象
+            //3、获取接口的实现类对象。传入接口，mybatis会为我们生成相应的代理对象
             ReaderMapper mapper = openSession.getMapper(ReaderMapper.class);
 
             //4、调用接口的方法
