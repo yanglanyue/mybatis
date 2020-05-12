@@ -26,7 +26,7 @@ public class mybatisTest {
     * 2、sql映射文件：配置每一个sql以及它的封装规则
     * 3、将sql映射文件注册到全局文件
     * 4、写如下代码：
-    * 切记用完后.close()关闭
+    * 切记用完后用.close()方法关闭
     * */
     @Test
     public void test() throws IOException {
