@@ -8,11 +8,11 @@
         <!--不仅是配置文件和接口绑定，id和接口的相关方法名一致
         public Reader getReaderById(Integer id);
         将相关方法也绑定-->
-<select id="getReaderById" resultType="com.mybatis.dao.Reader">
+<select id="getReaderById" resultType="rd">
  select * from reader where id = #{id}
  </select>
 
-    <select id="selectReader" resultType="com.mybatis.dao.Reader">
+    <select id="selectReader" resultType="rd">
  select * from reader where id = #{id}
  </select>
 

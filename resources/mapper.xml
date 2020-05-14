@@ -14,14 +14,14 @@
     <!--#{id}：从传递进来的参数中获取id值-->
 
     <!--将id内容更换成接口的方法名，使得select成为相关接口方法的实现-->
-    <select id="selectReader" resultType="com.mybatis.bean.Reader">
+    <select id="selectReader" resultType="reader">
  select * from reader where id = #{id}
  </select>
     <!--4.尚硅谷_MyBatis_接口式编程 03:30-->
     <!--不仅是配置文件和接口绑定，id和接口的相关方法名一致
     public Reader getReaderById(Integer id);
     将相关方法也绑定-->
-    <select id="getReaderById" resultType="com.mybatis.bean.Reader">
+    <select id="getReaderById" resultType="Reader">
  select * from reader where id = #{id}
  </select>
 
