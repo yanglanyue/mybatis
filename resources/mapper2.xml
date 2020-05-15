@@ -8,11 +8,11 @@
         <!--不仅是配置文件和接口绑定，id和接口的相关方法名一致
         public Reader getReaderById(Integer id);
         将相关方法也绑定-->
-<select id="getReaderById" resultType="rd">
+<select id="getReaderById" resultType="r11d">
  select * from reader where id = #{id}
  </select>
 
-    <select id="selectReader" resultType="rd">
+    <select id="selectReader" resultType="r11d">
  select * from reader where id = #{id}
  </select>
 

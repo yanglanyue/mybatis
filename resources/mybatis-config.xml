@@ -22,7 +22,7 @@
     <typeAliases>
         <!--typeAlias写法默认将全类名截取最后的类名并小写：reader-->
         <typeAlias type="com.mybatis.bean.Reader"/>
-        <typeAlias type="com.mybatis.dao.Reader" alias="rd"/>
+        <!--<typeAlias type="com.mybatis.dao.Reader" alias="rd"/>-->
 
         <!--为某个包下的所有类批量起别名，默认为全类名截取最后的类名
         若包里的子包中有相同类名的类，可在相应类中使用@Alias("XXX")标签另起新的类名
@@ -30,7 +30,28 @@
         <package name="com.mybatis.bean"/>
     </typeAliases>
 
+    <!--12.尚硅谷_MyBatis_全局配置文件_enviroments_运行环境-->
+    <!--environments：mybatis可以配置多种环境 ,environments的default属性可对切换需要的环境进行切换。
+        environment：配置一个具体的环境信息；必须有两个标签；id代表当前环境的唯一标识
+            transactionManager：事务管理器；
+                type：事务管理器的类型;JDBC(JdbcTransactionFactory)|MANAGED(ManagedTransactionFactory)
+                    自定义事务管理器：实现TransactionFactory接口.type指定为全类名
+
+            dataSource：数据源;
+                type:数据源类型;UNPOOLED(UnpooledDataSourceFactory)
+                            |POOLED(PooledDataSourceFactory)
+                            |JNDI(JndiDataSourceFactory)
+                自定义数据源：实现DataSourceFactory接口，type是全类名
+     -->
     <environments default="development">
+
+        <!--测试环境-->
+        <environment id="test">
+            <transactionManager type=""></transactionManager>
+            <dataSource type=""></dataSource>
+        </environment>
+
+        <!--开发环境-->
         <environment id="development">
             <transactionManager type="JDBC"/>
             <!--连接数据源-->
