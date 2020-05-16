@@ -47,7 +47,9 @@
 
         <!--测试环境-->
         <environment id="test">
+            <!--事物管理器-->
             <transactionManager type=""></transactionManager>
+            <!--数据源-->
             <dataSource type=""></dataSource>
         </environment>
 
@@ -67,6 +69,10 @@
             </dataSource>
         </environment>
     </environments>
+
+    <!--13.尚硅谷_MyBatis_全局配置文件_databaseIdProvider_多数据库支持-->
+    <!--DB_VENDOR：Ctrl+N查找configuration（ibatis）类可找到对应类-->
+    <databaseIdProvider type="DB_VENDOR"></databaseIdProvider>
 
     <!--写好的sql映射文件（mapper.xml）一定要注册到全局文件中（mybatis-config.xml）-->
 <!--3.尚硅谷_MyBatis_HelloWorld 17:35-->
