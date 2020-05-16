@@ -71,8 +71,14 @@
     </environments>
 
     <!--13.尚硅谷_MyBatis_全局配置文件_databaseIdProvider_多数据库支持-->
-    <!--DB_VENDOR：Ctrl+N查找configuration（ibatis）类可找到对应类-->
-    <databaseIdProvider type="DB_VENDOR"></databaseIdProvider>
+    <!--DB_VENDOR：Ctrl+N查找configuration（ibatis）类可找到对应类
+    其作用是得到数据库厂商的标识，mybatis根据不同厂商的标识执行相应的SQL-->
+    <databaseIdProvider type="DB_VENDOR">
+        <!--为不同的数据库厂商起名-->
+        <property name="MySQL" value="mysql"/>
+        <property name="Oracle" value="oracle"/>
+        <property name="SQL Server" value="sqlserver"/>
+    </databaseIdProvider>
 
     <!--写好的sql映射文件（mapper.xml）一定要注册到全局文件中（mybatis-config.xml）-->
 <!--3.尚硅谷_MyBatis_HelloWorld 17:35-->
