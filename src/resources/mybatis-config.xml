@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<!--全局配置文件-->
+
+<configuration>
+
+    <!--7.尚硅谷_MyBatis_全局配置文件_properties_引入外部配置文件-->
+    <!--教程讲可引用外部properties配置文件，但此项目未成功-->
+    <properties resource="dbconfig.properties"></properties>
+
+    <!--8.尚硅谷_MyBatis_全局配置文件_settings_运行时行为设置-->
+    <!--settings包含很多重要设置项-->
+    <settings>
+        <!--驼峰命名默认关闭，可手动开启-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+
+    <!--别名处理器，可以为java类起别名，简化操作-->
+    <typeAliases>
+        <!--typeAlias写法默认将全类名截取最后的类名并小写：reader-->
+        <typeAlias type="mybatis.bean.Reader"/>
+        <!--<typeAlias type="Reader" alias="rd"/>-->
+
+        <!--为某个包下的所有类批量起别名，默认为全类名截取最后的类名
+        若包里的子包中有相同类名的类，可在相应类中使用@Alias("XXX")标签另起新的类名
+        -->
+        <package name="mybatis.bean"/>
+    </typeAliases>
+
+    <!--12.尚硅谷_MyBatis_全局配置文件_enviroments_运行环境-->
+    <!--environments：mybatis可以配置多种环境 ,environments的default属性可对切换需要的环境进行切换。
+        environment：配置一个具体的环境信息；必须有两个标签；id代表当前环境的唯一标识
+            transactionManager：事务管理器；
+                type：事务管理器的类型;JDBC(JdbcTransactionFactory)|MANAGED(ManagedTransactionFactory)
+                    自定义事务管理器：实现TransactionFactory接口.type指定为全类名
+
+            dataSource：数据源;
+                type:数据源类型;UNPOOLED(UnpooledDataSourceFactory)
+                            |POOLED(PooledDataSourceFactory)
+                            |JNDI(JndiDataSourceFactory)
+                自定义数据源：实现DataSourceFactory接口，type是全类名
+     -->
+    <environments default="development">
+
+        <!--测试环境-->
+        <environment id="test">
+            <!--事物管理器-->
+            <transactionManager type=""></transactionManager>
+            <!--数据源-->
+            <dataSource type=""></dataSource>
+        </environment>
+
+        <!--开发环境-->
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <!--连接数据源-->
+            <dataSource type="POOLED">
+                <!--<property name="driver" value="${jdbc.driver}"/>-->
+                <!--<property name="url" value="${jdbc.url}"/>-->
+                <!--<property name="username" value="${jdbc.user}"/>-->
+                <!--<property name="password" value="${jdbc.password}"/>-->
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://127.0.0.1/a?useUnicode=true&amp;characterEncoding=utf-8&amp;serverTimezone=UTC"/>
+                <property name="username" value="root"/>
+                <property name="password" value="dangerous"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--13.尚硅谷_MyBatis_全局配置文件_databaseIdProvider_多数据库支持-->
+    <!--DB_VENDOR：Ctrl+N查找configuration（ibatis）类可找到对应类
+    其作用是得到数据库厂商的标识，mybatis根据不同厂商的标识执行相应的SQL-->
+    <databaseIdProvider type="DB_VENDOR">
+        <!--为不同的数据库厂商起名-->
+        <property name="MySQL" value="mysql"/>
+        <property name="Oracle" value="oracle"/>
+        <property name="SQL Server" value="sqlserver"/>
+    </databaseIdProvider>
+
+    <!--写好的sql映射文件（mapper.xml）一定要注册到全局文件中（mybatis-config.xml）-->
+<!--3.尚硅谷_MyBatis_HelloWorld 17:35-->
+    <mappers>
+        <mapper resource="mapper.xml"/>
+        <!--<mapper resource="mapper2.xml"/>-->
+    </mappers>
+</configuration>
