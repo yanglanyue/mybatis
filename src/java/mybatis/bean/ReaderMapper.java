@@ -1,6 +1,4 @@
-package com.mybatis.dao;
-
-import com.mybatis.bean.Reader;
+package mybatis.bean;
 
 public interface ReaderMapper {
     public Reader getReaderById(Integer id);

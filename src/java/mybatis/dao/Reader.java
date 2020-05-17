@@ -1,4 +1,4 @@
-package com.mybatis.bean;
+package mybatis.dao;
 
 public class Reader {
     private Integer id;

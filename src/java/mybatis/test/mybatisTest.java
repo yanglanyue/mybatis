@@ -1,11 +1,11 @@
-package com.mybatis.test;
+package mybatis.test;
 
 
 import java.io.IOException;
 import java.io.InputStream;
 
-import com.mybatis.bean.Reader;
-import com.mybatis.bean.ReaderMapper;
+import mybatis.bean.Reader;
+import mybatis.bean.ReaderMapper;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -42,7 +42,7 @@ public class mybatisTest {
         try {
 //            3.尚硅谷_MyBatis_HelloWorld 16:56
             //s:传入xml文件中配置好的sql的唯一标识（也就是id），以免发生id重复，最好将namespace连在id前
-            Reader reader = openSession.selectOne("com.mybatis.bean.ReaderMapper.selectReader", 1);
+            Reader reader = openSession.selectOne("mybatis.bean.ReaderMapper.selectReader", 1);
             System.out.println(reader);
         }finally {
             openSession.close();
